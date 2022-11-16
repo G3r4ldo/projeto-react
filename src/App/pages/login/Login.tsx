@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 export const Login = () => {
     const [email, setEmail] = useState('');
@@ -9,6 +9,8 @@ export const Login = () => {
     return email.length*1000;
     },[email.length]);
 
+    //useCallback é usado pra memorizar funções
+
     useEffect(() => {
     console.log(email)
     },[email]);
@@ -17,10 +19,10 @@ export const Login = () => {
         console.log(password)  
         },[password]);
 
-    const handleEntrar = () => {
+    const handleEntrar = useCallback(() => {
         console.log(email)
         console.log(password)
-    }
+    },[email,password])
 
     return (
        <div>

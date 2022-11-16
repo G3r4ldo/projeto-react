@@ -7,6 +7,7 @@ return (
     <div>
 
     <p>Dashboard</p>
+    
   <Link to="/entrar">Login</Link>
 
     </div>

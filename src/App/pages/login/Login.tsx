@@ -47,7 +47,7 @@ if (inputPasswordRef.current !== null){
             />
 
             <InputLogin
-          
+          ref={inputPasswordRef}
              label="Senha"
              value={password}
              type = "password"

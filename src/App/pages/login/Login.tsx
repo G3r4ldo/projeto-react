@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import { InputLogin } from "./componentes/InputLogin";
+
 export const Login = () => {
 
     //use ref pode ser usado para armazenar um caminho html, como por exemplo uma input
@@ -37,22 +39,30 @@ if (inputPasswordRef.current !== null){
         <form>
 <p>Quantidade de caracteres no email: {emailLength}</p>
 
-            <label>
-                <span>Email</span>
-                <input value={email} 
-                onChange={e => setEmail(e.target.value)}
-                onKeyDown={e => e.key === 'Enter' ? inputPasswordRef.current?.focus(): undefined}
-                />
-               
-            </label>
-            <label>
+            <InputLogin
+            label="Email"
+            value={email}
+            onChange={newValue => setEmail(newValue)}
+            onPressEnter={() => inputPasswordRef.current?.focus()}
+            />
+
+            <InputLogin
+          
+             label="Senha"
+             value={password}
+             type = "password"
+             onChange={newValue => setPassword(newValue)}
+            />
+
+
+            {/*<label>
                 <span>Senha</span>
                 <input 
                 //armazenando a input na referencia
                 ref={inputPasswordRef}
                 
                 type="password" value={password} onChange={e => setPassword(e.target.value)} />
-            </label>
+    </label>*/}
 
             <button type="button" onClick={handleEntrar}>
                 Entrar

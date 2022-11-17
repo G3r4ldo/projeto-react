@@ -8,7 +8,7 @@ nomeDoUsuario: string;
 
 
 
- const UsuarioLogadoContext = createContext<IUsuarioLogadoContextData>({} as IUsuarioLogadoContextData);
+ export const UsuarioLogadoContext = createContext<IUsuarioLogadoContextData>({} as IUsuarioLogadoContextData);
 
 
  interface IUsuarioLogadoProviderProps{
@@ -20,7 +20,7 @@ export const UsuarioLogadoProvider: React.FC<IUsuarioLogadoProviderProps> = ({ch
 
     return (
 
-        <UsuarioLogadoContext.Provider value={{nomeDoUsuario: 'Admin'}}>
+        <UsuarioLogadoContext.Provider value={{nomeDoUsuario: 'Juca'}}>
 
 {children}
         </UsuarioLogadoContext.Provider>

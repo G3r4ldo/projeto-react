@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { UsuarioLogadoContext } from "../../shared/contexts";
 
 import { ButtonLogin } from "./componentes/ButtonLogin";
 import { InputLogin } from "./componentes/InputLogin";
@@ -7,6 +8,8 @@ export const Login = () => {
 
     //use ref pode ser usado para armazenar um caminho html, como por exemplo uma input
     const  inputPasswordRef = useRef<HTMLInputElement>(null);
+
+    const usuarioLogadoContext = useContext(UsuarioLogadoContext);
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -39,6 +42,7 @@ if (inputPasswordRef.current !== null){
        <div>
         <form>
 <p>Quantidade de caracteres no email: {emailLength}</p>
+<p>{usuarioLogadoContext.nomeDoUsuario}</p>
 
             <InputLogin
             label="Email"
